@@ -235,6 +235,7 @@ form {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
   transition: transform 0.25s ease;
   will-change: transform;
+  height: 100%;
 }
 
 .product-card:hover {
