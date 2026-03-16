@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClaudeTools</title>
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" -->
+        <!-- integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <!-- Header Starts here -->
+    <header>
+        <div class="marquee-banner">
+            <div class="marquee-content">
+                Welcome to ClaudeTools Want the best to get the Job Done? Then ClaudeTools Got you covered!
+            </div>
+        </div>
+
+        <div class="nav-1">
+            <div>
+                <a href="./index.html"><img src="./Assets/logo Yellow.png" alt="logo" width="60px" class="logo"></a>
+            </div>
+
+            <form action="#">
+                <div class="search-box">
+                    <input type="search" name="search" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </div>
+
+                <!-- Account Dropdown -->
+                <div class="account-dropdown">
+                    <button type="button" id="accountBtn">Account ▾</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="./login.html">Login</a>
+                        <a href="./login.html">Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <nav class="main-nav">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+            <ul id="navMenu">
+                <li><a href="#">Hire</a></li>
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">View Equipment</a></li>
+                <li><a href="#">Ladders</a></li>
+                <li><a href="#">Building Materials</a></li>
+                <li><a href="#">Cleaning</a></li>
+                <li><a href="#">Powered Access</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header Stops here -->
+
+    <!-- hero section -->
+    <main>
+        <section>
+            <div class="container-fluid bg">
+                <div class="hero-content">
+                    <h1>Welcome to ClaudTools</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quo temporibus esse,
+                        accusantium veniam doloremque iste repellat ad eum ab modi nemo, assumenda rerum tempore, sunt
+                        nisi
+                        suscipit explicabo laboriosam.
+                    </p>
+                    <div>
+                        <button class="btn-hire">Hire Now!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="product-section">
+            <h2>Popular Products</h2>
+            <div class="parent-products">
+                <div class="product-card">
+                    <img src="./Assets/cleaning-collection-bucket-copy-space.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Sanding</h2>
+                        <p class="product-desc">
+                            We have a fantastic rage of sanders and sanding machines available for hire nationwide, including floor sanders, belt sanders, edge sanders, orbital sanders, palm sanders, mouse sanders, and more. We can also supply all the sanding discs and sheets you need for planing, renovating, and preparing all wood surfaces.
+                        </p>
+
+                        <div class="price">£68.07 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>Dynamically Balanced Sanding Drum</li>
+                                <li>High Impact ABS Guards</li>
+                                <li>High Powered Vacuum</li>
+                                <li>Extremely Practical & Versatile</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/3d-render-rotavator.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Access Towers</h2>
+                        <p class="product-desc">
+                            We have affordable access towers available nationwide. Our access equipment range includes traditional scaffold towers, stair scaffold towers, MiTowers, MiStairs, lift shaft towers, chimney scaffolding, and more. We provide safe and sturdy aluminium and GRP (fibreglass) equipment for domestic and professional use.
+                        </p>
+
+                        <div class="price">£48.79 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>Ideal for Site or DIY Work</li>
+                                <li>Available in Sizes from 2.2m up to 13.2m HIgh</li>
+                                <li>Standard or Narrow Width Available</li>
+                                <li>Supplied as a Full Kit</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/orange-grasscutter-standing-ground-green-grass.jpg" alt="Product Image"
+                        loading="lazy" class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Cement Mixer Hire</h2>
+                        <p class="product-desc">
+                            We have a great cement mixer hire range, including 110v and 240v mixers, petrol mixers, and diesel mixers. We also have electric stirrers, resin mixers, and combination kits with vibrating wacker plates and disc cutters together for a discounted rate. They are ideal for preparing quality concrete.
+                        </p>
+
+                        <div class="price">£49.70 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>240V Electric Motor</li>
+                                <li>90-Litre Mixing Output</li>
+                                <li>Dependable & Tough</li>
+                                <li>Compact & Lightweight</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/view-guitar-musical-instruments-store.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Compactor Hire</h2>
+                        <p class="product-desc">
+                            We have a brilliant range of compactors available for hire nationwide. Our equipment catalogue includes vibrating wacker plates, forward / reverse plate compactors, vibrating rollers, Bomag rollers, trench rammers, and more - all at incredible rates. Order online or by phone and collect from your nearest store or book delivery.
+                        </p>
+
+                        <div class="price">£62.88 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>Midweight Plate Compactor</li>
+                                <li>13kN Vibration Force</li>
+                                <li>Reliable, Lightweight & Straightforward</li>
+                                <li>320mm (13") Baseplate</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/top-view-toolbox-with-yellow-tools.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Garden Equipment Hire</h2>
+                        <p class="product-desc">
+                            We have a fantastic landscaping equipment and garden tool hire range available nationwide. Our catalogue includes brush cutters, lawn scarifiers, lawn tillers, lawn aerators, garden rollers, tree stump grinders, wood chippers, garden shredders, turf cutters, and much more. Perfect for garden clearing, care, and cultivating!
+                        </p>
+
+                        <div class="price">£79.66 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>Easy To Use</li>
+                                <li>Tough Steel Blades</li>
+                                <li>Adjustable Blade Height</li>
+                                <li>Adjustable Handlebars</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/top-view-pattern-from-set-construction-tools-as-screwdriver-pipe-wrench-safety-helmet-paint-brush-open-end-wrench-wooden-background.jpg"
+                        alt="Product Image" loading="lazy" class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Concrete Breaker Hire</h2>
+                        <p class="product-desc">
+                            We have a fantastic range of concrete breakers available for hire nationwide. Our selection includes medium duty and heavy duty electric breakers, a variety of kangos, hammer drills, hydraulic and pneumatic road breakers, power scrapers, needle guns, and more, at incredible rates.
+                        </p>
+
+                        <div class="price">£60.28 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>8J Impact Energy</li>
+                                <li>1100-2650 Blows Per Minute</li>
+                                <li>Compact Handheld Design</li>
+                                <li>Anti Vibration Technology</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/set-architect-tools.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Dehumidifier Hire</h2>
+                        <p class="product-desc">
+                            Our dehumidifier hire fleet includes quality, high capacity, robust refrigerant dehumidifiers, building dryers, and floor dryers. This climate control equipment is ideal for flood and leak remediation, drying damp rooms like basements and garages before structural work, drying surfaces following decoration, and more.
+                        </p>
+
+                        <div class="price">£104.72 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>All Steel Construction</li>
+                                <li>Gravity Condensate Drain</li>
+                                <li>Extracts Up To 12-Litres Per Day</li>
+                                <li>Stoved Epoxy Finish</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/painting-tools.jpg" alt="Product Image" loading="lazy" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Camera Drone</h2>
+                        <p class="product-desc">
+                            Capture amazing aerial shots with this 4K camera drone. Easy to control,
+                            lightweight, and perfect for outdoor adventures.
+                        </p>
+
+                        <div class="price">£120 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>4K Ultra HD Camera</li>
+                                <li>30 Minutes Battery Life</li>
+                                <li>Remote Control Range: 5km</li>
+                                <li>Beginner Friendly</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/hands-holding-cleaning-tools-solutions.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Camera Drone</h2>
+                        <p class="product-desc">
+                            Capture amazing aerial shots with this 4K camera drone. Easy to control,
+                            lightweight, and perfect for outdoor adventures.
+                        </p>
+
+                        <div class="price">£120 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>4K Ultra HD Camera</li>
+                                <li>30 Minutes Battery Life</li>
+                                <li>Remote Control Range: 5km</li>
+                                <li>Beginner Friendly</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/hands-holding-cleaning-tools-solutions.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Camera Drone</h2>
+                        <p class="product-desc">
+                            Capture amazing aerial shots with this 4K camera drone. Easy to control,
+                            lightweight, and perfect for outdoor adventures.
+                        </p>
+
+                        <div class="price">£120 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>4K Ultra HD Camera</li>
+                                <li>30 Minutes Battery Life</li>
+                                <li>Remote Control Range: 5km</li>
+                                <li>Beginner Friendly</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/hands-holding-cleaning-tools-solutions.jpg" alt="Product Image" loading="lazy"
+                        class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Camera Drone</h2>
+                        <p class="product-desc">
+                            Capture amazing aerial shots with this 4K camera drone. Easy to control,
+                            lightweight, and perfect for outdoor adventures.
+                        </p>
+
+                        <div class="price">£120 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>4K Ultra HD Camera</li>
+                                <li>30 Minutes Battery Life</li>
+                                <li>Remote Control Range: 5km</li>
+                                <li>Beginner Friendly</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="./Assets/orange-grasscutter-standing-ground-green-grass.jpg" alt="Product Image"
+                        loading="lazy" class="product-img" />
+
+                    <div class="product-info">
+                        <h2 class="product-title">Camera Drone</h2>
+                        <p class="product-desc">
+                            Capture amazing aerial shots with this 4K camera drone. Easy to control,
+                            lightweight, and perfect for outdoor adventures.
+                        </p>
+
+                        <div class="price">£120 / day</div>
+
+                        <div class="buttons">
+                            <button class="details-btn">Product Details</button>
+                            <button class="hire-btn">Hire Now</button>
+                        </div>
+
+                        <div class="details-box">
+                            <h4>Product Details</h4>
+                            <ul>
+                                <li>4K Ultra HD Camera</li>
+                                <li>30 Minutes Battery Life</li>
+                                <li>Remote Control Range: 5km</li>
+                                <li>Beginner Friendly</li>
+                            </ul>
+                        </div>
+
+                        <p class="message" id="message">Product hired successfully!</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- brand-section -->
+        <section class="brand-slider-section">
+            <h2 class="brand-title">Hire by Trusted Brands</h2>
+
+            <div class="brand-slider">
+                <div class="brand-track" id="brandTrack">
+                    <div class="brand-slide"><img src="./Assets/brand1.png" alt="Brand 1"></div>
+                    <div class="brand-slide"><img src="./Assets/brand2.png" alt="Brand 2"></div>
+                    <div class="brand-slide"><img src="./Assets/brand3.png" alt="Brand 3"></div>
+                    <div class="brand-slide"><img src="./Assets/brand4.png" alt="Brand 4"></div>
+                    <div class="brand-slide"><img src="./Assets/brand5.png" alt="Brand 5"></div>
+                    <div class="brand-slide"><img src="./Assets/Brand6.jpg" alt="Brand 6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- promo section  -->
+
+        <section class="promo-section">
+            <div class="promo-grid">
+
+                <!-- Left Top Card -->
+                <div class="promo-card small-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80');">
+                    <div class="overlay"></div>
+                    <div class="promo-content">
+                        <h2>Bring your floors back to life</h2>
+                        <p>Up to <span>30% off</span> Floor Sanders</p>
+                        <a href="#" class="promo-btn">
+                            Hire now
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Big Card -->
+                <div class="promo-card large-card"
+                    style="background-image: url('./Assets/close-up-home-plan-with-work-tools.jpg');">
+                    <div class="overlay"></div>
+                    <div class="promo-content bottom-content">
+                        <h2>Self Assembly Kitchens</h2>
+                        <p>Everything you need to build your dream kitchen</p>
+                        <a href="#" class="promo-btn">
+                            Shop now
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Left Bottom Card -->
+                <div class="promo-card small-card"
+                    style="background-image: url('./Assets/cleaning-collection-bucket-copy-space.jpg');">
+                    <div class="overlay"></div>
+                    <div class="promo-content">
+                        <h2>Gardening Jobs in March</h2>
+                        <a href="#" class="promo-btn">
+                            Read now
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <!-- Column 1 -->
+            <div class="footer-column footer-intro">
+                <h3>Account Login</h3>
+                <p>
+                    Have a credit account or looking for a B2B solution for your procurement
+                    needs? Check out ClaudeTools ProService Marketplace
+                </p>
+
+                <a href="#" class="footer-btn">
+                    Learn more
+                    <span class="arrow-circle">→</span>
+                </a>
+
+                <div class="footer-careers">
+                    <h3>Careers At ClaudeTools</h3>
+                    <p>
+                        All the tools for a great career!
+                        <a href="#">Find out more.</a>
+                    </p>
+                </div>
+
+                <div class="footer-socials">
+                    <h3>Our Socials</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="YouTube">▶</a>
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">◎</a>
+                        <a href="#" aria-label="X">𝕏</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-column">
+                <h3>Customer support</h3>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Subject Access Request</a></li>
+                    <li><a href="#">Modern Slavery Act</a></li>
+                    <li><a href="#">Supplier Ethics &amp; Conduct Policy</a></li>
+                    <li><a href="#">ESG Impact Report</a></li>
+                    <li><a href="#">Renting to Net Zero</a></li>
+                    <li><a href="#">Health and Safety</a></li>
+                    <li><a href="#">Manage your Preferences</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-column">
+                <h3>More ClaudeTools Products &amp; Services</h3>
+                <ul>
+                    <li><a href="#">Find a branch</a></li>
+                    <li><a href="#">Tips and Advice</a></li>
+                    <li><a href="#">ClaudeTools Training</a></li>
+                    <li><a href="#">ClaudeTools Skips</a></li>
+                    <li><a href="#">ClaudeTools Group</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-column">
+                <h3>Terms &amp; Conditions</h3>
+                <ul>
+                    <li><a href="#">Terms &amp; Conditions for Hire</a></li>
+                    <li><a href="#">Terms &amp; Conditions for Purchasing</a></li>
+                    <li><a href="#">Terms &amp; Conditions for Suppliers (Buy)</a></li>
+                    <li><a href="#">Terms &amp; Conditions for Suppliers (Hire)</a></li>
+                    <li><a href="#">Terms &amp; Conditions (Competitions)</a></li>
+                    <li><a href="#">Terms &amp; Conditions (Video Content Disclaimer)</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

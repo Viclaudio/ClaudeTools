@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClaudTools</title>
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" -->
+        <!-- integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="marquee-banner">
+            <div class="marquee-content">
+                Welcome to ClaudeTools — Want the best to get the Job Done? Then ClaudeTools Got you covered!
+            </div>
+        </div>
+
+        <div class="nav-1">
+            <div>
+                <a href="./index.html"><img src="./Assets/logo Yellow.png" alt="logo" width="60px" class="logo"></a>
+            </div>
+
+            <form action="#">
+                <div class="search-box">
+                    <input type="search" name="search" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+
+    </header>
+
+    <div class="body">
+
+        <div class="auth-container">
+            <div class="auth-header">
+                <button class="tab-btn active" id="loginTab">Login</button>
+                <button class="tab-btn" id="registerTab">Register</button>
+            </div>
+
+            <div class="form-wrapper">
+                <!-- Login Form Starts here -->
+                <div class="form-box active" id="loginFormBox">
+                    <h2>Welcome Back</h2>
+                    <p>Login to continue</p>
+
+                    <form id="loginForm" action="login.php" method="post">
+                        <div class="input-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your email" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="loginPassword">Password</label>
+                            <div class="password-wrap">
+                                <input type="password" id="loginPassword" placeholder="Enter your password" />
+                                <button type="button" class="toggle-password" data-target="loginPassword">Show</button>
+                            </div>
+                        </div>
+
+                        <!-- Role Dropdown -->
+                        <div class="form-group">
+                            <label for="role">Logging in as</label>
+                                <select name="role" id="loginRole" required>
+                                    <option value="" disabled selected>Select role...</option>
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                        </div>
+
+                        <button type="submit" class="auth-btn">Login</button>
+                        <div class="message" id="loginMessage"></div>
+                    </form>
+                </div>
+                <!-- Login Form Ends here -->
+
+                <!-- Register Form Starts here-->
+                <div class="form-box" id="registerFormBox">
+                    <h2>Create Account</h2>
+                    <p>Register to get started</p>
+
+                    <form id="registerForm" action="signup.php" method="post">
+                        <div class="input-group">
+                            <label for="registerName">Full Name</label>
+                            <input type="text" id="registerName" placeholder="Enter your full name" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" placeholder="Enter your email" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="registerPassword">Password</label>
+                            <div class="password-wrap">
+                                <input type="password" id="registerPassword" placeholder="Create a password" />
+                                <button type="button" class="toggle-password"
+                                    data-target="registerPassword">Show</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="password-wrap">
+                                <input type="password" id="confirmPassword" placeholder="Confirm password" />
+                                <button type="button" class="toggle-password"
+                                    data-target="confirmPassword">Show</button>
+                            </div>
+                        </div>
+
+                        <!-- Role Dropdown -->
+                        <div class="form-group">
+                            <label for="role">Logging in as</label>
+                                <select name="role" id="registerRole" required>
+                                    <option value="" disabled selected>Select role...</option>
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                        </div>
+
+                        <button type="submit" class="auth-btn">Register</button>
+                        <div class="message" id="registerMessage"></div>
+                    </form>
+                </div>
+                <!-- Register Form Ends here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
