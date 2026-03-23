@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ladders - ClaudTools</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+   <header>
+        <marquee behavior="smooth" direction="rtl">
+            Welcome to ClaudTools Want the best to get the Job Done? Then
+            ClaudTools Got you covered!
+        </marquee>
+
+        <div class="nav-1">
+            <div>
+                <a href="./index.html">
+                    <img src="./Assets/logo Yellow.jpeg" alt="logo" width="60px" class="logo">
+                </a>
+            </div>
+
+            <form action="#">
+                <div class="search-box">
+                    <input type="search" name="search" placeholder="Search......">
+                    <button type="submit">Search</button>
+                </div>
+
+                <!-- Account Dropdown -->
+                <div class="account-dropdown">
+                    <button type="button" id="accountBtn">Account ▾</button>
+
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <!-- <a href="./login.html">Login</a> -->
+                        <a href="./login.html" id="logoutBtn" class="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <nav class="main-nav">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+            <ul id="navMenu">
+                <li><a href="./hire.html" class="protected-page-link">Hire</a></li>
+                <li><a href="./buy.html" class="protected-page-link">Buy</a></li>
+                <li><a href="./equipment.html" class="protected-page-link">View Equipment</a></li>
+                <li><a href="./ladders.html" class="protected-page-link">Ladders</a></li>
+                <li><a href="./building-materials.html" class="protected-page-link">Building Materials</a></li>
+                <li><a href="./cleaning.html" class="protected-page-link">Cleaning</a></li>
+                <li><a href="./powered-access.html" class="protected-page-link">Powered Access</a></li>
+                <li><a href="./projects.html" class="protected-page-link">Projects</a></li>
+            </ul>
+        </nav>
+        <!-- <div class="catalog-header">
+            <h1>ClaudTools Catalog</h1>
+            <div class="header-actions">
+                <a href="./index.html" class="back-btn">Back Home</a>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div> -->
+    </header>
+
+  <main class="catalog-page">
+    <h2>Available Ladders</h2>
+
+    <div class="catalog-grid">
+      <div class="catalog-card" data-id="1" data-name="Extension Ladder" data-price="95">
+        <img src="./Assets/set-architect-tools.jpg" alt="Extension Ladder" />
+        <div class="catalog-info">
+          <h3>Extension Ladder</h3>
+          <p>Safe and durable ladder for indoor and outdoor work.</p>
+          <span>$95 / day</span>
+          <button class="catalog-hire-btn">Hire Now</button>
+        </div>
+      </div>
+
+      <div class="catalog-card" data-id="2" data-name="Step Ladder" data-price="75">
+        <img src="./Assets/top-view-toolbox-with-yellow-tools.jpg" alt="Step Ladder" />
+        <div class="catalog-info">
+          <h3>Step Ladder</h3>
+          <p>Compact ladder for home and site tasks.</p>
+          <span>$75 / day</span>
+          <button class="catalog-hire-btn">Hire Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

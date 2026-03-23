@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy - ClaudTools</title>
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+</head>
+
+<body class="buy-page">
+  <header>
+    <marquee behavior="smooth" direction="rtl">
+      Welcome to ClaudTools Want the best to get the Job Done? Then
+      ClaudTools Got you covered!
+    </marquee>
+
+    <div class="nav-1">
+      <div>
+        <a href="./index.html">
+          <img src="./Assets/logo Yellow.jpeg" alt="logo" width="60" class="logo" />
+        </a>
+      </div>
+
+      <form action="#">
+        <div class="search-box">
+          <input type="search" name="search" placeholder="Search......" />
+          <button type="submit">Search</button>
+        </div>
+
+        <div class="account-dropdown">
+          <button type="button" id="accountBtn">Account ▾</button>
+
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="./login.html" id="logoutBtn" class="logout-btn">Logout</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <nav class="main-nav">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <ul id="navMenu">
+        <li><a href="#" class="protected-link" data-link="hire.html">Hire</a></li>
+        <li><a href="#" class="protected-link" data-link="buy.html">Buy</a></li>
+        <li><a href="#" class="protected-link" data-link="equipment.html">View Equipment</a></li>
+        <li><a href="#" class="protected-link" data-link="ladders.html">Ladders</a></li>
+        <li><a href="#" class="protected-link" data-link="building-materials.html">Building Materials</a></li>
+        <li><a href="#" class="protected-link" data-link="cleaning.html">Cleaning</a></li>
+        <li><a href="#" class="protected-link" data-link="powered-access.html">Powered Access</a></li>
+        <li><a href="#" class="protected-link" data-link="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="catalog-page buy-page">
+    <h2>Available Products</h2>
+    <p id="catalogMessage" class="catalog-message"></p>
+
+    <div class="catalog-grid">
+      <div
+        class="catalog-card"
+        data-id="1"
+        data-name="Floor Sander"
+        data-price="120"
+        data-category="buy equipment building"
+      >
+        <img src="./Assets/cleaning-collection-bucket-copy-space.jpg" alt="Floor Sander" />
+        <div class="catalog-info">
+          <h3>Floor Sander</h3>
+          <p>Strong and reliable for smooth finishing jobs.</p>
+          <span>$120</span>
+          <button class="buy-btn catalog-hire-btn">Buy Now</button>
+          <p class="buy-message"></p>
+        </div>
+      </div>
+
+      <div
+        class="catalog-card"
+        data-id="2"
+        data-name="Rotavator"
+        data-price="150"
+        data-category="buy projects equipment"
+      >
+        <img src="./Assets/3d-render-rotavator.jpg" alt="Rotavator" />
+        <div class="catalog-info">
+          <h3>Rotavator</h3>
+          <p>Perfect for garden and soil preparation work.</p>
+          <span>$150</span>
+          <button class="buy-btn catalog-hire-btn">Buy Now</button>
+          <p class="buy-message"></p>
+        </div>
+      </div>
+
+      <div
+        class="catalog-card"
+        data-id="3"
+        data-name="Grass Cutter"
+        data-price="90"
+        data-category="buy cleaning"
+      >
+        <img
+          src="./Assets/orange-grasscutter-standing-ground-green-grass.jpg"
+          alt="Grass Cutter"
+        />
+        <div class="catalog-info">
+          <h3>Grass Cutter</h3>
+          <p>Easy to handle and ideal for lawn maintenance.</p>
+          <span>$90</span>
+          <button class="buy-btn catalog-hire-btn">Buy Now</button>
+          <p class="buy-message"></p>
+        </div>
+      </div>
+
+      <div
+        class="catalog-card"
+        data-id="4"
+        data-name="Toolbox Set"
+        data-price="110"
+        data-category="buy building equipment"
+      >
+        <img src="./Assets/top-view-toolbox-with-yellow-tools.jpg" alt="Toolbox Set" />
+        <div class="catalog-info">
+          <h3>Toolbox Set</h3>
+          <p>Complete tool kit for repair and maintenance.</p>
+          <span>$110</span>
+          <button class="buy-btn catalog-hire-btn">Buy Now</button>
+          <p class="buy-message"></p>
+        </div>
+      </div>
+
+      <div
+        class="catalog-card"
+        data-id="5"
+        data-name="Extension Ladder"
+        data-price="95"
+        data-category="buy ladders"
+      >
+        <img src="./Assets/set-architect-tools.jpg" alt="Extension Ladder" />
+        <div class="catalog-info">
+          <h3>Extension Ladder</h3>
+          <p>Safe and durable ladder for indoor and outdoor work.</p>
+          <span>$95</span>
+          <button class="buy-btn catalog-hire-btn">Buy Now</button>
+          <p class="buy-message"></p>
+        </div>
+      </div>
+
+      <div
+        class="catalog-card"
+        data-id="6"
+        data-name="Scissor Lift"
+        data-price="220"
+        data-category="buy access projects equipment"
+      >
+        <img
+          src="./Assets/top-view-pattern-from-set-construction-tools-as-screwdriver-pipe-wrench-safety-helmet-paint-brush-open-end-wrench-wooden-background.jpg"
+          alt="Scissor Lift"
+        />
+        <div class="catalog-info">
+          <h3>Scissor Lift</h3>
+          <p>Reliable powered access machine for elevated work.</p>
+          <span>$220</span>
+          <button class="buy-btn catalog-hire-btn">Buy Now</button>
+          <p class="buy-message"></p>
+        </div>
+      </div>
+    </div>
+
+    <section class="hired-section">
+      <h2>Selected Products</h2>
+      <div id="hiredProducts" class="hired-products"></div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
