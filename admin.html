@@ -518,7 +518,7 @@
                 </div>
 
                 <div class="field">
-                  <label for="equipmentPrice">Rental Price Per Day ($)</label>
+                  <label for="equipmentPrice">Rental Price Per Day (£)</label>
                   <input type="number" min="0" step="0.01" id="equipmentPrice" name="equipmentPrice" placeholder="e.g. 45" />
                   <div class="error" data-error-for="equipmentPrice"></div>
                 </div>
@@ -702,7 +702,7 @@
     function formatCurrency(value) {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'USD'
+        currency: 'GBP'
       }).format(value);
     }
 
