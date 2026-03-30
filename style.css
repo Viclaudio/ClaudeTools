@@ -1068,7 +1068,7 @@ this is the styling for the catalog
   cursor: pointer;
 }
 
-.catalog-page {
+/* .catalog-page {
   padding: 24px;
 }
 
@@ -1194,7 +1194,7 @@ this is the styling for the catalog
 
 .catalog-card {
   display: block;
-}
+}*/
 
 
 /* buy now */
@@ -1208,3 +1208,176 @@ this is the styling for the catalog
 .buy-message.success {
   display: block;
 }
+
+/* Catalog php page style starts here */
+.catalog-page {
+    padding: 30px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.catalog-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.catalog-count {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.catalog-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.catalog-card:hover { transform: translateY(-4px); }
+
+.catalog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.catalog-info {
+    padding: 16px;
+}
+
+.catalog-category {
+    font-size: 0.78rem;
+    background: #f4c005;
+    color: #111;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.catalog-info h3 {
+    margin: 10px 0 4px;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.catalog-brand {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.catalog-prices {
+    display: flex;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.price-day {
+    font-weight: 700;
+    color: #f4c005;
+    font-size: 1rem;
+}
+
+.price-week {
+    font-size: 0.88rem;
+    color: #888;
+    align-self: center;
+}
+
+.availability {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
+
+.availability.available { background: #e7ffe8; color: #157a1f; }
+.availability.unavailable { background: #ffe5e5; color: #b30000; }
+
+.catalog-hire-btn {
+    width: 100%;
+    padding: 10px;
+    background: #f4c005;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.catalog-hire-btn:hover { 
+  background: #ddb000; 
+}
+.unavailable-btn { 
+  background: #ccc !important; 
+  cursor: not-allowed !important; 
+}
+
+/* Booking Modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.show { 
+  display: flex; 
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    width: min(420px, 90%);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    color: #222;
+}
+
+.price-estimate {
+    font-weight: 600;
+    color: #f4c005;
+    margin: 8px 0 16px;
+    font-size: 0.95rem;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.cancel-btn {
+    flex: 1;
+    padding: 13px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.cancel-btn:hover { 
+  border-color: #999; 
+}
+/* Catalog php page style ends here */
