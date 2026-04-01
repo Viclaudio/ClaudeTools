@@ -1,0 +1,244 @@
+.admin-body { background: #f4f6f9; min-height: 100vh; }
+
+.admin-header {
+    background: #111;
+    padding: 14px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.admin-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #f4c005;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.logout-btn {
+    padding: 7px 16px;
+    background: #f4c005;
+    color: #111;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.admin-container {
+    max-width: 1400px;
+    margin: 28px auto;
+    padding: 0 20px;
+}
+
+.stats-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 24px;
+    flex: 1;
+    min-width: 140px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    color: #f4c005;
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    color: #888;
+    font-size: 0.88rem;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.admin-tab {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #555;
+    transition: 0.2s;
+}
+
+.admin-tab.active {
+    background: #f4c005;
+    color: #111;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.tab-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.admin-search {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 280px;
+    outline: none;
+}
+
+.admin-search:focus { border-color: #f4c005; }
+
+.add-btn {
+    padding: 10px 20px;
+    background: #f4c005;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.admin-table-wrap {
+    background: #fff;
+    border-radius: 14px;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.admin-table th {
+    background: #111;
+    color: #fff;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.admin-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    vertical-align: middle;
+}
+
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover td { background: #fafafa; }
+
+.badge {
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-green { background: #e7ffe8; color: #157a1f; }
+.badge-red   { background: #ffe5e5; color: #b30000; }
+
+.action-btns { display: flex; gap: 8px; }
+
+.icon-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: 0.2s;
+    background: #f4f6f9;
+    color: #444;
+}
+
+.icon-btn:hover { background: #e0e0e0; }
+.delete-btn { color: #b30000; }
+.delete-btn:hover { background: #ffe5e5; }
+
+.modal-lg { width: min(700px, 95%); }
+.modal-sm { width: min(380px, 95%); }
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.modal-grid .full-width { grid-column: 1 / -1; }
+
+.modal-grid textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    resize: vertical;
+}
+
+.modal-grid textarea:focus { border-color: #f4c005; }
+
+.delete-confirm-btn {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #b30000;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-confirm-btn:hover { background: #900; }
+
+@media (max-width: 600px) {
+    .modal-grid { grid-template-columns: 1fr; }
+    .stats-bar { gap: 10px; }
+    .stat-card { min-width: 100px; padding: 14px; }
+}

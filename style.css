@@ -1242,7 +1242,9 @@ this is the styling for the catalog
     transition: transform 0.2s ease;
 }
 
-.catalog-card:hover { transform: translateY(-4px); }
+.catalog-card:hover { 
+  transform: translateY(-4px); 
+}
 
 .catalog-card img {
     width: 100%;
@@ -1302,11 +1304,15 @@ this is the styling for the catalog
     margin-bottom: 12px;
 }
 
-.availability.available { background: #e7ffe8; color: #157a1f; }
-.availability.unavailable { background: #ffe5e5; color: #b30000; }
+.availability.available { 
+  background: #e7ffe8; color: #157a1f; 
+}
+.availability.unavailable { 
+  background: #ffe5e5; color: #b30000; 
+}
 
 .catalog-hire-btn {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     background: #f4c005;
     border: none;
@@ -1378,6 +1384,7 @@ this is the styling for the catalog
 }
 
 .cancel-btn:hover { 
-  border-color: #999; 
+  border-color: #999;
+  width: 50%; 
 }
 /* Catalog php page style ends here */
