@@ -24,7 +24,7 @@ document.getElementById('userSearch').addEventListener('input', function() {
     });
 });
 
-// ---- HELPER: POST to admin_actions.php ----
+// ---- POST to admin_actions.php ----
 function adminAction(data) {
     return fetch('admin_actions.php', { method: 'POST', body: new FormData(Object.assign(new FormData(), data)) })
         .then(res => res.json());
@@ -165,7 +165,7 @@ document.querySelectorAll('.delete-user-btn').forEach(btn => {
     });
 });
 
-// ---- CONFIRM DELETE (shared) ----
+// ---- CONFIRM DELETE ----
 document.getElementById('confirmYes').addEventListener('click', () => {
     if (!pendingDelete) return;
     post(pendingDelete).then(res => {

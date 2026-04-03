@@ -37,8 +37,12 @@ img {
 }
 
 @keyframes marquee-scroll {
-  from { transform: translateX(100vw); }
-  to   { transform: translateX(-100%); }
+  from { 
+    transform: translateX(100vw); 
+  }
+  to { 
+    transform: translateX(-100%); 
+  }
 }
 
 header {
@@ -817,10 +821,7 @@ form {
 }
 
 
-/* ..............................
-Styling for the form
-
-.................................*/
+/* Form style starts here */
 .body {
   min-height: 100vh;
   display: flex;
@@ -1041,10 +1042,7 @@ Styling for the form
   }
 }
 
-/* .............................................. 
-
-this is the styling for the catalog
-.................................................*/
+/* Catalog php page style starts here */
 
 .catalog-header h1 {
   font-size: 1.8rem;
@@ -1209,7 +1207,7 @@ this is the styling for the catalog
   display: block;
 }
 
-/* Catalog php page style starts here */
+/* Catalog php page style continues here */
 .catalog-page {
     padding: 30px 20px;
     max-width: 1300px;
@@ -1388,3 +1386,546 @@ this is the styling for the catalog
   width: 50%; 
 }
 /* Catalog php page style ends here */
+
+/* client_dashboard php page style starts here */
+.dashboard-body {
+    background: #f4f6f9;
+    min-height: 100vh;
+}
+
+.admin-header {
+    background: #111;
+    padding: 14px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.admin-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.admin-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #f4c005;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.admin-logo img {
+    height: 45px !important;
+    width: auto !important;
+    max-width: 60px;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.admin-user .logout-btn {
+    padding: 7px 16px;
+    background: #f4c005;
+    color: #111;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.admin-container {
+    max-width: 1400px;
+    margin: 28px auto;
+    padding: 0 20px;
+}
+
+.stats-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 24px;
+    flex: 1;
+    min-width: 140px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    text-align: center;
+    border-top: 4px solid #f4c005;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    color: #111;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    color: #888;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.wallet-stat h3 {
+    color: #157a1f;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    width: fit-content;
+}
+
+.admin-tab {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.92rem;
+    color: #555;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-tab i { 
+  font-size: 1rem; 
+}
+
+.admin-tab.active {
+    background: #f4c005;
+    color: #111;
+    box-shadow: 0 2px 8px rgba(244,192,5,0.3);
+}
+
+.admin-tab:hover:not(.active) {
+    background: #f4f6f9;
+}
+
+.tab-content { 
+  display: none; 
+}
+.tab-content.active { 
+  display: block; 
+}
+
+.tab-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.admin-search {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 280px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-search:focus { 
+  border-color: #f4c005; 
+}
+
+.add-btn {
+    padding: 10px 20px;
+    background: #f4c005;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.add-btn:hover { 
+  background: #ddb000; 
+}
+
+.admin-table-wrap {
+    background: #fff;
+    border-radius: 14px;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.admin-table th {
+    background: #111;
+    color: #fff;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.admin-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    vertical-align: middle;
+}
+
+.admin-table tr:last-child td { 
+  border-bottom: none; 
+}
+.admin-table tr:hover td { 
+  background: #fafafa; 
+}
+
+.badge {
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-green { 
+  background: #e7ffe8; 
+  color: #157a1f; 
+}
+.badge-red { 
+  background: #ffe5e5; 
+  color: #b30000; 
+}
+
+.rental-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.rental-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.rental-card.overdue { 
+  border-color: #b30000; 
+}
+
+.rental-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.rental-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rental-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.88rem;
+    color: #555;
+}
+
+.rental-dates span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.countdown {
+    background: #f0f8ff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0055aa;
+    text-align: center;
+}
+
+.countdown-overdue {
+    background: #ffe5e5;
+    color: #b30000;
+}
+
+.rental-price {
+    font-weight: 700;
+    color: #f4c005;
+    font-size: 1rem;
+}
+
+.return-btn {
+    width: 100%;
+    padding: 10px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: 0.2s;
+    margin-top: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.return-btn:hover { 
+  background: #333; 
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 14px;
+    color: #ccc;
+}
+
+.empty-state p {
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.wallet-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.wallet-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.wallet-balance-display {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #111, #333);
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.wallet-balance-display i {
+    font-size: 2.5rem;
+    color: #f4c005;
+    flex-shrink: 0;
+}
+
+.wallet-balance-display p {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 4px;
+}
+
+.wallet-balance-display h2 {
+    font-size: 2rem;
+    color: #f4c005;
+    font-weight: 800;
+}
+
+.topup-section h4 {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.topup-presets {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.preset-btn {
+    padding: 8px 18px;
+    border: 2px solid #f4c005;
+    border-radius: 8px;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #111;
+    transition: 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.preset-btn:hover { 
+  background: #f4c005; 
+}
+
+.wallet-transactions {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.wallet-transactions h4 {
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.transaction-icon.topup { 
+  background: #e7ffe8; 
+  color: #157a1f; 
+}
+.transaction-icon.deduction { 
+  background: #ffe5e5; 
+  color: #b30000; 
+}
+.transaction-icon.refund { 
+  background: #e8f4ff; 
+  color: #0055aa; 
+}
+
+.transaction-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction-details p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transaction-details span { 
+  font-size: 0.8rem; 
+  color: #aaa; 
+}
+
+.transaction-amount {
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.transaction-amount.positive { 
+  color: #157a1f; 
+}
+.transaction-amount.negative { 
+  color: #b30000; 
+}
+
+@media (max-width: 1024px) {
+    .wallet-layout { 
+      grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-tabs {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .admin-tab {
+        flex: 1;
+        justify-content: center;
+    }
+    .rental-grid { 
+      grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-bar { gap: 10px; }
+    .stat-card { min-width: 120px; padding: 14px 10px; }
+    .stat-card h3 { font-size: 1.5rem; }
+    .topup-presets { gap: 8px; }
+    .preset-btn { padding: 7px 14px; }
+    .admin-container { padding: 0 12px; }
+    .admin-tabs { gap: 6px; padding: 6px; }
+    .admin-tab { padding: 8px 14px; font-size: 0.85rem; }
+}
+/* Client_dashboard php page style ends here */
+
