@@ -1929,3 +1929,48 @@ form {
 }
 /* Client_dashboard php page style ends here */
 
+/* Rebook & Extend buttons */
+.rebook-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: #e8f4ff;
+    color: #2563eb;
+    transition: 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.rebook-btn:hover {
+    background: #bfdbfe;
+    color: #1d4ed8;
+}
+
+/* Extend — full width black button matching "Mark as Returned" */
+.extend-btn {
+    width: 100%;
+    padding: 10px;
+    background: #f4c005;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: 0.2s;
+    margin-top: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+.extend-btn:hover {
+    background: #ddb000;
+}

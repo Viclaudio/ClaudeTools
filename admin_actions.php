@@ -12,17 +12,17 @@ $action = $_POST['action'] ?? '';
 
 switch ($action) {
 
-    // ---- TOGGLE EQUIPMENT AVAILABILITY ----
+    // TOGGLE EQUIPMENT AVAILABILITY
     case 'toggle_availability':
         $id     = intval($_POST['id']);
         $status = $_POST['current_status'];
-        $new    = $status === 'Available' ? 'Unavailable' : 'Available';
+        $new    = $status === 'Available' ? 'Hired Out' : 'Available';
         $stmt   = $conn->prepare("UPDATE equipment SET availability = ? WHERE id = ?");
         $stmt->bind_param("si", $new, $id);
         echo json_encode(['success' => $stmt->execute(), 'new_status' => $new]);
         break;
 
-    // ---- ADD EQUIPMENT ----
+    // ADD EQUIPMENT
     case 'add_equipment':
         $name        = trim($_POST['name']);
         $brand       = trim($_POST['brand']);
@@ -38,7 +38,7 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'message' => $stmt->execute() ? 'Equipment added!' : 'Failed to add.']);
         break;
 
-    // ---- EDIT EQUIPMENT ----
+    // EDIT EQUIPMENT
     case 'edit_equipment':
         $id          = intval($_POST['id']);
         $name        = trim($_POST['name']);
@@ -55,7 +55,7 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'message' => 'Equipment updated!']);
         break;
 
-    // ---- DELETE EQUIPMENT ----
+    // DELETE EQUIPMENT
     case 'delete_equipment':
         $id   = intval($_POST['id']);
         $stmt = $conn->prepare("DELETE FROM equipment WHERE id = ?");
@@ -63,7 +63,7 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'message' => 'Equipment deleted.']);
         break;
 
-    // ---- SUSPEND / UNSUSPEND USER ----
+    // SUSPEND / UNSUSPEND USER
     case 'toggle_suspend':
         $id     = intval($_POST['id']);
         $status = $_POST['current_status'];
@@ -73,7 +73,7 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'new_status' => $new]);
         break;
 
-    // ---- EDIT USER ----
+    // EDIT USER
     case 'edit_user':
         $id    = intval($_POST['id']);
         $name  = trim($_POST['full_name']);
@@ -95,7 +95,7 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'message' => 'User updated!']);
         break;
 
-    // ---- DELETE USER ----
+    // DELETE USER
     case 'delete_user':
         $id   = intval($_POST['id']);
         // Delete bookings first (foreign key)
@@ -106,7 +106,7 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'message' => 'User deleted.']);
         break;
 
-    // ---- GET USER BOOKINGS ----
+    // GET USER BOOKINGS
     case 'get_bookings':
         $id   = intval($_POST['user_id']);
         $stmt = $conn->prepare("

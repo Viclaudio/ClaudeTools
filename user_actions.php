@@ -12,7 +12,7 @@ $action  = $_POST['action'] ?? '';
 
 switch ($action) {
 
-    // ---- BOOK EQUIPMENT ----
+    // BOOK EQUIPMENT
     case 'book_equipment':
         $equipment_id = intval($_POST['equipment_id']);
         $start_date   = $_POST['start_date'];
@@ -80,7 +80,7 @@ switch ($action) {
         }
         break;
 
-    // ---- RETURN EQUIPMENT ----
+    // RETURN EQUIPMENT
     case 'return_equipment':
         $booking_id = intval($_POST['booking_id']);
 
@@ -134,6 +134,72 @@ switch ($action) {
 
         echo json_encode(['success' => true, 'message' => "£{$amount} added to your wallet!"]);
         break;
+
+    // EXTEND BOOKING
+        case 'extend_booking':
+            $booking_id = intval($_POST['booking_id']);
+            $new_end    = $_POST['new_end'];
+
+            // Verify booking belongs to this user and is active
+            $b = $conn->prepare("
+                SELECT b.end_date, b.equipment_id, e.daily_rate, e.weekly_rate
+                FROM bookings b
+                JOIN equipment e ON b.equipment_id = e.id
+                WHERE b.id = ? AND b.user_id = ? AND b.status IN ('Pending', 'Confirmed')
+            ");
+            $b->bind_param("ii", $booking_id, $user_id);
+            $b->execute();
+            $booking = $b->get_result()->fetch_assoc();
+
+            if (!$booking) {
+                echo json_encode(['success' => false, 'message' => 'Active booking not found.']);
+                exit;
+            }
+
+            // Calculate extra days and cost
+            $extra_days = (strtotime($new_end) - strtotime($booking['end_date'])) / 86400;
+
+            if ($extra_days <= 0) {
+                echo json_encode(['success' => false, 'message' => 'New return date must be after the current one.']);
+                exit;
+            }
+
+            $weeks    = floor($extra_days / 7);
+            $rem_days = $extra_days % 7;
+            $cost     = ($weeks * $booking['weekly_rate']) + ($rem_days * $booking['daily_rate']);
+
+            // Check wallet
+            $w = $conn->prepare("SELECT wallet FROM users WHERE id = ?");
+            $w->bind_param("i", $user_id);
+            $w->execute();
+            $wallet = $w->get_result()->fetch_assoc()['wallet'];
+
+            if ($wallet < $cost) {
+                echo json_encode(['success' => false, 'message' => "Insufficient balance. Extension costs £{$cost}, you have £{$wallet}."]);
+                exit;
+            }
+
+            // Update booking end date and total price
+            $update = $conn->prepare("UPDATE bookings SET end_date = ?, total_price = total_price + ? WHERE id = ?");
+            $update->bind_param("sdi", $new_end, $cost, $booking_id);
+
+            if ($update->execute()) {
+            // Deduct from wallet
+                $deduct = $conn->prepare("UPDATE users SET wallet = wallet - ? WHERE id = ?");
+                $deduct->bind_param("di", $cost, $user_id);
+                $deduct->execute();
+
+                // Log transaction
+                $desc = "Booking #$booking_id extension";
+                $t = $conn->prepare("INSERT INTO wallet_transactions (user_id, type, amount, description) VALUES (?, 'Deduction', ?, ?)");
+                $t->bind_param("ids", $user_id, $cost, $desc);
+                $t->execute();
+
+                echo json_encode(['success' => true, 'message' => "Booking extended to " . date('d M Y', strtotime($new_end)) . ". £{$cost} deducted."]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Extension failed. Please try again.']);
+            }
+            break;
 
     default:
         echo json_encode(['success' => false, 'message' => 'Unknown action.']);

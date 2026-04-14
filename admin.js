@@ -1,4 +1,4 @@
-// ---- TABS ----
+// TABS
 document.querySelectorAll('.admin-tab').forEach(tab => {
     tab.addEventListener('click', () => {
         document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
@@ -8,7 +8,7 @@ document.querySelectorAll('.admin-tab').forEach(tab => {
     });
 });
 
-// ---- SEARCH EQUIPMENT ----
+// SEARCH EQUIPMENT
 document.getElementById('equipmentSearch').addEventListener('input', function() {
     const q = this.value.toLowerCase();
     document.querySelectorAll('#equipmentTable tbody tr').forEach(row => {
@@ -16,7 +16,7 @@ document.getElementById('equipmentSearch').addEventListener('input', function() 
     });
 });
 
-// ---- SEARCH USERS ----
+// SEARCH USERS
 document.getElementById('userSearch').addEventListener('input', function() {
     const q = this.value.toLowerCase();
     document.querySelectorAll('#usersTable tbody tr').forEach(row => {
@@ -24,7 +24,7 @@ document.getElementById('userSearch').addEventListener('input', function() {
     });
 });
 
-// ---- POST to admin_actions.php ----
+// POST to admin_actions.php
 function adminAction(data) {
     return fetch('admin_actions.php', { method: 'POST', body: new FormData(Object.assign(new FormData(), data)) })
         .then(res => res.json());
@@ -36,7 +36,7 @@ function post(data) {
     return fetch('admin_actions.php', { method: 'POST', body: form }).then(r => r.json());
 }
 
-// ---- TOGGLE AVAILABILITY ----
+// TOGGLE AVAILABILITY
 document.querySelectorAll('.toggle-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         post({ action: 'toggle_availability', id: btn.dataset.id, current_status: btn.dataset.status })
@@ -46,7 +46,7 @@ document.querySelectorAll('.toggle-btn').forEach(btn => {
     });
 });
 
-// ---- ADD EQUIPMENT ----
+// ADD EQUIPMENT
 document.getElementById('openAddEquipment').addEventListener('click', () => {
     document.getElementById('addEquipmentModal').classList.add('show');
 });
@@ -72,7 +72,7 @@ document.getElementById('confirmAddEquipment').addEventListener('click', () => {
     });
 });
 
-// ---- EDIT EQUIPMENT ----
+// EDIT EQUIPMENT
 document.querySelectorAll('.edit-eq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.getElementById('editEqId').value         = btn.dataset.id;
@@ -110,7 +110,7 @@ document.getElementById('confirmEditEquipment').addEventListener('click', () => 
     });
 });
 
-// ---- DELETE EQUIPMENT ----
+// DELETE EQUIPMENT
 let pendingDelete = null;
 document.querySelectorAll('.delete-eq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -120,7 +120,7 @@ document.querySelectorAll('.delete-eq-btn').forEach(btn => {
     });
 });
 
-// ---- SUSPEND USER ----
+// SUSPEND USER
 document.querySelectorAll('.suspend-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         post({ action: 'toggle_suspend', id: btn.dataset.id, current_status: btn.dataset.status })
@@ -128,7 +128,7 @@ document.querySelectorAll('.suspend-btn').forEach(btn => {
     });
 });
 
-// ---- EDIT USER ----
+// EDIT USER
 document.querySelectorAll('.edit-user-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.getElementById('editUserId').value    = btn.dataset.id;
@@ -156,7 +156,7 @@ document.getElementById('confirmEditUser').addEventListener('click', () => {
     });
 });
 
-// ---- DELETE USER ----
+// DELETE USER
 document.querySelectorAll('.delete-user-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         pendingDelete = { action: 'delete_user', id: btn.dataset.id };
@@ -165,7 +165,7 @@ document.querySelectorAll('.delete-user-btn').forEach(btn => {
     });
 });
 
-// ---- CONFIRM DELETE ----
+// CONFIRM DELETE
 document.getElementById('confirmYes').addEventListener('click', () => {
     if (!pendingDelete) return;
     post(pendingDelete).then(res => {
@@ -177,7 +177,7 @@ document.getElementById('confirmNo').addEventListener('click', () => {
     pendingDelete = null;
 });
 
-// ---- VIEW USER BOOKINGS ----
+// VIEW USER BOOKINGS
 document.querySelectorAll('.view-bookings-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.getElementById('bookingsUserName').textContent = btn.dataset.name;

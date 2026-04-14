@@ -2,7 +2,7 @@
 session_start();
 require 'config.php';
 
-// Get category from URL e.g. catalog.php?category=Cleaners
+// Get category from URL
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 $search   = isset($_GET['search']) ? trim($_GET['search']) : '';
 
@@ -182,7 +182,7 @@ function updatePriceEstimate() {
 document.getElementById('startDate').addEventListener('change', updatePriceEstimate);
 document.getElementById('endDate').addEventListener('change', updatePriceEstimate);
 
-// Cancel modal
+// Cancel Button
 document.getElementById('cancelBooking').addEventListener('click', () => {
     document.getElementById('bookingModal').classList.remove('show');
 });

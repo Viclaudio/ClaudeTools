@@ -129,9 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ........................
 // Script for the form
-// ...............................
 
 const loginTab = document.getElementById("loginTab");
 const registerTab = document.getElementById("registerTab");
@@ -208,7 +206,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // ---- All good — send to PHP ----
+    // ---- All good send to PHP ----
     const data = new FormData();
     data.append('full_name', name);
     data.append('email',     email);

@@ -10,10 +10,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 
 $admin_name = $_SESSION['full_name'];
 
-// ---- Fetch all equipment ----
+// Find all equipment
 $equipment = $conn->query("SELECT * FROM equipment ORDER BY category, name ASC")->fetch_all(MYSQLI_ASSOC);
 
-// ---- Fetch all users (excluding admins) ----
+// Find all users (excluding admins)
 $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -217,7 +217,7 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
 </div>
 
 
-<!-- ADD EQUIPMENT MODAL STATS HERE -->
+<!-- ADD EQUIPMENT STATS HERE -->
 <div class="modal-overlay" id="addEquipmentModal">
     <div class="modal-box modal-lg">
         <h3>Add New Equipment</h3>
@@ -286,9 +286,9 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
         <div class="message" id="addEquipmentMsg"></div>
     </div>
 </div>
-<!-- ADD EQUIPMENT MODAL ENDS HERE -->
+<!-- ADD EQUIPMENT ENDS HERE -->
 
-<!-- EDIT EQUIPMENT MODAL STARTS HERE -->
+<!-- EDIT EQUIPMENT STARTS HERE -->
 <div class="modal-overlay" id="editEquipmentModal">
     <div class="modal-box modal-lg">
         <h3>Edit Equipment</h3>
@@ -358,9 +358,9 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
         <div class="message" id="editEquipmentMsg"></div>
     </div>
 </div>
-<!-- EDIT EQUIPMENT MODAL ENDS HERE -->
+<!-- EDIT EQUIPMENT ENDS HERE -->
 
-<!-- EDIT USER MODAL STARTS HERE -->
+<!-- EDIT USER STARTS HERE -->
 <div class="modal-overlay" id="editUserModal">
     <div class="modal-box">
         <h3>Edit User</h3>
@@ -387,9 +387,9 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
         <div class="message" id="editUserMsg"></div>
     </div>
 </div>
-<!-- EDIT USER MODAL ENDS HERE -->
+<!-- EDIT USER ENDS HERE -->
 
-<!-- USER BOOKINGS MODAL STARTS HERE -->
+<!-- USER BOOKINGS STARTS HERE -->
 <div class="modal-overlay" id="bookingsModal">
     <div class="modal-box modal-lg">
         <h3>Bookings for <span id="bookingsUserName"></span></h3>
@@ -399,9 +399,9 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
         </div>
     </div>
 </div>
-<!-- USER BOOKINGS MODAL ENDS HERE -->
+<!-- USER BOOKINGS ENDS HERE -->
 
-<!-- CONFIRM DELETE MODAL STARTS HERE -->
+<!-- DELETE STARTS HERE -->
 <div class="modal-overlay" id="confirmModal">
     <div class="modal-box modal-sm">
         <h3>Are you sure?</h3>
@@ -412,7 +412,7 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
         </div>
     </div>
 </div>
-<!-- CONFIRM DELETE MODAL ENDS HERE -->
+<!-- DELETE ENDS HERE -->
 
 <script src="./admin.js"></script>
 </body>
