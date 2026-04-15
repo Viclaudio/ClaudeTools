@@ -120,6 +120,67 @@ document.querySelectorAll('.delete-eq-btn').forEach(btn => {
     });
 });
 
+// CREATE USER
+document.getElementById('openCreateUser').addEventListener('click', () => {
+    // Clear fields each time modal opens
+    document.getElementById('newUserName').value     = '';
+    document.getElementById('newUserEmail').value    = '';
+    document.getElementById('newUserPassword').value = '';
+    document.getElementById('newUserRole').value     = '';
+    document.getElementById('createUserMsg').className = 'message';
+    document.getElementById('createUserMsg').textContent = '';
+    document.getElementById('createUserModal').classList.add('show');
+});
+
+document.getElementById('cancelCreateUser').addEventListener('click', () => {
+    document.getElementById('createUserModal').classList.remove('show');
+});
+
+document.getElementById('confirmCreateUser').addEventListener('click', () => {
+    const msg      = document.getElementById('createUserMsg');
+    const name     = document.getElementById('newUserName').value.trim();
+    const email    = document.getElementById('newUserEmail').value.trim();
+    const password = document.getElementById('newUserPassword').value;
+    const role     = document.getElementById('newUserRole').value;
+
+    if (!name || !email || !password || !role) {
+        msg.className = 'message error';
+        msg.textContent = 'Please fill in all fields.';
+        return;
+    }
+    if (password.length < 6) {
+        msg.className = 'message error';
+        msg.textContent = 'Password must be at least 6 characters.';
+        return;
+    }
+
+    post({
+        action:    'create_user',
+        full_name: name,
+        email:     email,
+        password:  password,
+        role:      role
+    }).then(res => {
+        msg.className = 'message ' + (res.success ? 'success' : 'error');
+        msg.textContent = res.message;
+        if (res.success) setTimeout(() => location.reload(), 1500);
+    }).catch(() => {
+        msg.className = 'message error';
+        msg.textContent = 'Could not connect. Try again.';
+    });
+});
+
+// Password toggle for create user modal
+document.querySelectorAll('.toggle-password').forEach(button => {
+    button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        if (!target) return;
+        const isPassword = target.type === 'password';
+        target.type = isPassword ? 'text' : 'password';
+        button.textContent = isPassword ? 'Hide' : 'Show';
+    });
+});
+
 // SUSPEND USER
 document.querySelectorAll('.suspend-btn').forEach(btn => {
     btn.addEventListener('click', () => {

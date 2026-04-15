@@ -18,108 +18,107 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - ClaudTools</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./admin.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body class="admin-body">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard - ClaudTools</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./admin.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body class="admin-body">
 
-<header class="admin-header">
-    <div class="admin-header-inner">
-        <div class="admin-logo">
-            <a href="./index.html"><img src="./Assets/logo Yellow.png" alt="logo" height="45px"></a>
-            <span>Admin Panel</span>
+    <header class="admin-header">
+        <div class="admin-header-inner">
+            <div class="admin-logo">
+                <a href="./index.html"><img src="./Assets/logo Yellow.png" alt="logo" height="45px"></a>
+                <span>Admin Panel</span>
+            </div>
+            <div class="admin-user">
+                <span>👋 Welcome, <?= htmlspecialchars($admin_name) ?></span>
+                <a href="logout.php" class="logout-btn">Logout</a>
+            </div>
         </div>
-        <div class="admin-user">
-            <span>👋 Welcome, <?= htmlspecialchars($admin_name) ?></span>
-            <a href="logout.php" class="logout-btn">Logout</a>
-        </div>
-    </div>
-</header>
+    </header>
 
-<div class="admin-container">
+    <div class="admin-container">
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-card">
-            <h3><?= count($equipment) ?></h3>
-            <p>Total Equipment</p>
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <h3><?= count($equipment) ?></h3>
+                <p>Total Equipment</p>
+            </div>
+            <div class="stat-card">
+                <h3><?= count(array_filter($equipment, fn($e) => $e['availability'] === 'Available')) ?></h3>
+                <p>Available</p>
+            </div>
+            <div class="stat-card">
+                <h3><?= count(array_filter($equipment, fn($e) => $e['availability'] !== 'Available')) ?></h3>
+                <p>Unavailable</p>
+            </div>
+            <div class="stat-card">
+                <h3><?= count($users) ?></h3>
+                <p>Total Users</p>
+            </div>
+            <div class="stat-card">
+                <h3><?= count(array_filter($users, fn($u) => $u['status'] === 'Suspended')) ?></h3>
+                <p>Suspended</p>
+            </div>
         </div>
-        <div class="stat-card">
-            <h3><?= count(array_filter($equipment, fn($e) => $e['availability'] === 'Available')) ?></h3>
-            <p>Available</p>
-        </div>
-        <div class="stat-card">
-            <h3><?= count(array_filter($equipment, fn($e) => $e['availability'] !== 'Available')) ?></h3>
-            <p>Unavailable</p>
-        </div>
-        <div class="stat-card">
-            <h3><?= count($users) ?></h3>
-            <p>Total Users</p>
-        </div>
-        <div class="stat-card">
-            <h3><?= count(array_filter($users, fn($u) => $u['status'] === 'Suspended')) ?></h3>
-            <p>Suspended</p>
-        </div>
-    </div>
 
-    <!-- Tabs -->
-    <div class="admin-tabs">
-        <button class="admin-tab active" data-tab="equipment">
-            <i class="bi bi-tools"></i> Equipment
-        </button>
-        <button class="admin-tab" data-tab="users">
-            <i class="bi bi-people"></i> Users
-        </button>
-    </div>
-
-    <!-- EQUIPMENT TAB CODE STARTS HERE -->
-    <div class="tab-content active" id="tab-equipment">
-
-        <div class="tab-toolbar">
-            <input type="text" id="equipmentSearch" placeholder="Search equipment..." class="admin-search">
-            <button class="add-btn" id="openAddEquipment">
-                <i class="bi bi-plus-lg"></i> Add Equipment
+        <!-- Tabs -->
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="equipment">
+                <i class="bi bi-tools"></i> Equipment
+            </button>
+            <button class="admin-tab" data-tab="users">
+                <i class="bi bi-people"></i> Users
             </button>
         </div>
 
-        <div class="admin-table-wrap">
-            <table class="admin-table" id="equipmentTable">
-                <thead>
-                    <tr>
+        <!-- EQUIPMENT TAB CODE STARTS HERE -->
+        <div class="tab-content active" id="tab-equipment">
+            <div class="tab-toolbar">
+                <input type="text" id="equipmentSearch" placeholder="Search equipment..." class="admin-search">
+                <button class="add-btn" id="openAddEquipment">
+                    <i class="bi bi-plus-lg"></i> Add Equipment
+                </button>
+            </div>
+
+            <div class="admin-table-wrap">
+                <table class="admin-table" id="equipmentTable">
+                    <thead>
+                        <tr>
                         <th>Name</th>
-                        <th>Brand / Model</th>
-                        <th>Category</th>
-                        <th>Daily Rate</th>
-                        <th>Weekly Rate</th>
-                        <th>Availability</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($equipment as $item): ?>
-                    <tr data-id="<?= $item['id'] ?>">
-                        <td><?= htmlspecialchars($item['name']) ?></td>
-                        <td><?= htmlspecialchars($item['brand']) ?> — <?= htmlspecialchars($item['model']) ?></td>
-                        <td><?= htmlspecialchars($item['category']) ?></td>
-                        <td>£<?= number_format($item['daily_rate'], 2) ?></td>
-                        <td>£<?= number_format($item['weekly_rate'], 2) ?></td>
-                        <td>
-                            <span class="badge <?= $item['availability'] === 'Available' ? 'badge-green' : 'badge-red' ?>">
-                                <?= htmlspecialchars($item['availability']) ?>
-                            </span>
-                        </td>
-                        <td class="action-btns">
-                            <button class="icon-btn toggle-btn"
-                                title="Toggle Availability"
-                                data-id="<?= $item['id'] ?>"
-                                data-status="<?= $item['availability'] ?>">
-                                <i class="bi bi-arrow-repeat"></i>
-                            </button>
+                            <th>Brand / Model</th>
+                            <th>Category</th>
+                            <th>Daily Rate</th>
+                            <th>Weekly Rate</th>
+                            <th>Availability</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($equipment as $item): ?>
+                        <tr data-id="<?= $item['id'] ?>">
+                            <td><?= htmlspecialchars($item['name']) ?></td>
+                            <td><?= htmlspecialchars($item['brand']) ?> — <?= htmlspecialchars($item['model']) ?></td>
+                            <td><?= htmlspecialchars($item['category']) ?></td>
+                            <td>£<?= number_format($item['daily_rate'], 2) ?></td>
+                            <td>£<?= number_format($item['weekly_rate'], 2) ?></td>
+                            <td>
+                                <span class="badge <?= $item['availability'] === 'Available' ? 'badge-green' : 'badge-red' ?>">
+                                    <?= htmlspecialchars($item['availability']) ?>
+                                </span>
+                            </td>
+                            <td class="action-btns">
+                                <button class="icon-btn toggle-btn"
+                                    title="Toggle Availability"
+                                    data-id="<?= $item['id'] ?>"
+                                    data-status="<?= $item['availability'] ?>">
+                                    <i class="bi bi-arrow-repeat"></i>
+                                </button>
                             <button class="icon-btn edit-eq-btn"
                                 title="Edit"
                                 data-id="<?= $item['id'] ?>"
@@ -153,6 +152,12 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
 
         <div class="tab-toolbar">
             <input type="text" id="userSearch" placeholder="Search users..." class="admin-search">
+        </div>
+        <div class="tab-toolbar">
+            <input type="text" id="userSearch" placeholder="Search users..." class="admin-search">
+                <button class="add-btn" id="openCreateUser">
+                    <i class="bi bi-person-plus"></i> Create User
+                </button>
         </div>
 
         <div class="admin-table-wrap">
@@ -388,6 +393,42 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC")->fetch_all
     </div>
 </div>
 <!-- EDIT USER ENDS HERE -->
+
+<!-- CREATE USER STARTS HERE -->
+<div class="modal-overlay" id="createUserModal">
+    <div class="modal-box">
+        <h3>Create New User</h3>
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="newUserName" placeholder="Enter full name">
+        </div>
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="newUserEmail" placeholder="Enter email address">
+        </div>
+        <div class="input-group">
+            <label>Password</label>
+            <div class="password-wrap">
+                <input type="password" id="newUserPassword" placeholder="Set a password">
+                <button type="button" class="toggle-password" data-target="newUserPassword">Show</button>
+            </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+            <label>Role</label>
+            <select id="newUserRole" required>
+                <option value="" disabled selected>Select role...</option>
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+            </select>
+        </div>
+        <div class="modal-buttons">
+            <button class="auth-btn" id="confirmCreateUser">Create User</button>
+            <button class="cancel-btn" id="cancelCreateUser">Cancel</button>
+        </div>
+        <div class="message" id="createUserMsg"></div>
+    </div>
+</div>
+<!-- CREATE USER ENDS HERE -->
 
 <!-- USER BOOKINGS STARTS HERE -->
 <div class="modal-overlay" id="bookingsModal">

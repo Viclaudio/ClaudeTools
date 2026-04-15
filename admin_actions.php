@@ -16,8 +16,12 @@ switch ($action) {
     case 'toggle_availability':
         $id     = intval($_POST['id']);
         $status = $_POST['current_status'];
-        $new    = $status === 'Available' ? 'Hired Out' : 'Available';
-        $stmt   = $conn->prepare("UPDATE equipment SET availability = ? WHERE id = ?");
+
+        if ($status === 'Available')         $new = 'Hired Out';
+        elseif ($status === 'Hired Out')     $new = 'Under Maintenance';
+        else                                 $new = 'Available';
+
+        $stmt = $conn->prepare("UPDATE equipment SET availability = ? WHERE id = ?");
         $stmt->bind_param("si", $new, $id);
         echo json_encode(['success' => $stmt->execute(), 'new_status' => $new]);
         break;
@@ -63,6 +67,41 @@ switch ($action) {
         echo json_encode(['success' => $stmt->execute(), 'message' => 'Equipment deleted.']);
         break;
 
+    // CREATE USER
+    case 'create_user':
+        $full_name = trim($_POST['full_name']);
+        $email     = trim($_POST['email']);
+        $password  = $_POST['password'];
+        $role      = trim($_POST['role']);
+
+        $admin_domain = 'claudetools.com';
+        $email_domain = substr(strrchr($email, "@"), 1);
+
+    if ($role === 'Admin' && $email_domain !== $admin_domain) {
+        echo json_encode(['success' => false, 'message' => 'Admin accounts must use a @claudetools.com email.']);
+        exit;
+    }
+    if ($role === 'User' && $email_domain === $admin_domain) {
+        echo json_encode(['success' => false, 'message' => '@claudetools.com is reserved for admin accounts.']);
+        exit;
+    }
+
+    // Check email already exists
+        $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+        $check->bind_param("s", $email);
+        $check->execute();
+        $check->store_result();
+    if ($check->num_rows > 0) {
+        echo json_encode(['success' => false, 'message' => 'Email already registered.']);
+        exit;
+    }
+
+        $hashed = password_hash($password, PASSWORD_BCRYPT);
+        $stmt   = $conn->prepare("INSERT INTO users (full_name, email, password, role) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $full_name, $email, $hashed, $role);
+        echo json_encode(['success' => $stmt->execute(), 'message' => 'User created successfully!']);
+    break;
+
     // SUSPEND / UNSUSPEND USER
     case 'toggle_suspend':
         $id     = intval($_POST['id']);
@@ -97,10 +136,16 @@ switch ($action) {
 
     // DELETE USER
     case 'delete_user':
-        $id   = intval($_POST['id']);
-        // Delete bookings first (foreign key)
-        $conn->prepare("DELETE FROM bookings WHERE user_id = ?")->bind_param("i", $id);
-        $conn->execute();
+        $id = intval($_POST['id']);
+
+        $wt = $conn->prepare("DELETE FROM wallet_transactions WHERE user_id = ?");
+        $wt->bind_param("i", $id);
+        $wt->execute();
+
+        $bk = $conn->prepare("DELETE FROM bookings WHERE user_id = ?");
+        $bk->bind_param("i", $id);
+        $bk->execute();
+
         $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
         $stmt->bind_param("i", $id);
         echo json_encode(['success' => $stmt->execute(), 'message' => 'User deleted.']);

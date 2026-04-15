@@ -23,7 +23,7 @@ $user = $u->get_result()->fetch_assoc();
 
 // Block suspended users
 if ($user['status'] === 'Suspended') {
-    session_destroy('message' => 'User Suspended Contact Admin');
+    session_destroy();
     header('Location: login.html?suspended=1');
     exit;
 }
